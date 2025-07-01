@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Conversaodetemperatura {
+public class ConversaoDeTemperatura {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
