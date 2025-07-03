@@ -14,6 +14,7 @@ public class Media {
             String nome = scanner.nextLine();
             // Verifica se o usuário deseja encerrar o programa
             if (nome.equalsIgnoreCase("sair")) {
+
                 break;
             }
             System.out.print("Digite a nota do aluno: ");
