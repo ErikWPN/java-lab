@@ -1,14 +1,18 @@
-package POO;
+package POO.Principal;
 
 import POO.calculos.CalculadoraDeTempoTotal;
 import POO.calculos.FiltrarPorAvalicao;
 import POO.models.Filme;
 import POO.models.Serie;
+import POO.models.Titulo;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme primeiroFilme = new Filme();
-        primeiroFilme.setNome("Avangers Ultimato");
+        Filme primeiroFilme = new Filme("Avangers Ultimato", 2019);
         primeiroFilme.setInformacao("""
                 Após Thanos eliminar metade das criaturas vivas,
                 os Vingadores têm de lidar com a perda de amigos e entes 
@@ -16,7 +20,6 @@ public class Principal {
                 e comida, Steve Rogers e Natasha Romanov lideram a 
                 resistência contra o titã louco.
                 """);
-        primeiroFilme.setAnoDeLancamento(2019);
         primeiroFilme.setRestIdade(12);
         primeiroFilme.setDuracaoEmMinutos(181);
         primeiroFilme.exibeFichaTecnica();
@@ -28,11 +31,11 @@ public class Principal {
         System.out.println("Total de avaliação: " + primeiroFilme.getTotalDeNota());
         System.out.println("Media de avaliação: " + primeiroFilme.obterMedia());
 
-        /// Criando a compo de serie
-        Serie primeiraserie = new Serie();
+        Filme filmeFavorito = new Filme("Espetacular - Homem Aranha", 2012);
 
-        primeiraserie.setNome("Cães de Caça");
-        primeiraserie.setAnoDeLancamento(2023);
+        /// Criando a compo de serie
+        Serie primeiraserie = new Serie("Cães de Caça", 2023);
+
         primeiraserie.setInformacao("Dois jovens boxeadores se unem para derrubar um agiota cruel que oprime os mais vulneráveis.");
         primeiraserie.setTemporadas(1);
         primeiraserie.setEpsPorTemporada(8);
@@ -48,5 +51,14 @@ public class Principal {
 
         FiltrarPorAvalicao filtro = new FiltrarPorAvalicao();
         filtro.filtra(primeiroFilme);
+
+        ArrayList<Titulo> lista = new ArrayList<>();
+        lista.add(primeiroFilme);
+        lista.add(filmeFavorito);
+        lista.add(primeiraserie);
+
+        Collections.sort(lista);
+        System.out.println(lista);
+
     }
 }

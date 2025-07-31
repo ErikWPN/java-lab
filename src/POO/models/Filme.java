@@ -1,8 +1,14 @@
 package POO.models;
 import POO.calculos.Classificavel;
 
+
+
 public class Filme extends Titulo implements Classificavel{
     private String diretor;
+
+    public Filme(String nome, int anoDeLancamento) {
+        super(nome, anoDeLancamento);
+    }
 
     public String getDiretor() {
         return diretor;
@@ -14,11 +20,11 @@ public class Filme extends Titulo implements Classificavel{
 
     @Override
     public int getClassificacao(){
-        return (int) pegaMedia() / 2;
+        return (int) obterMedia() / 2;
     }
 
-    private Object pegaMedia() {
-        return null;
+    @Override
+    public String toString() {
+        return "Filme: " + getNome() + " (" + getAnoDeLancamento() + ")";
     }
 }
-
